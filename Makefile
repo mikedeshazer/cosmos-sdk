@@ -11,7 +11,7 @@ MOCKS_DIR = $(CURDIR)/tests/mocks
 
 export GO111MODULE = on
 
-all: tools build test install
+all: build install
 
 
 install: go.sum
