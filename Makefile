@@ -133,7 +133,7 @@ test_sim_benchmark_invariants:
 runsim: $(BINDIR)/runsim
 $(BINDIR)/runsim:
 	go get github.com/cosmos/tools/cmd/runsim/
-	go mod tidy
+	#go mod tidy
 
 SIM_NUM_BLOCKS ?= 500
 SIM_BLOCK_SIZE ?= 200
