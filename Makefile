@@ -4,7 +4,7 @@ PACKAGES_NOSIMULATION=$(shell go list ./... | grep -v '/simulation')
 PACKAGES_SIMTEST=$(shell go list ./... | grep '/simulation')
 VERSION := $(shell echo $(shell git describe --tags) | sed 's/^v//')
 COMMIT := $(shell git log -1 --format='%H')
-LEDGER_ENABLED ?= true
+LEDGER_ENABLED ?= false
 BINDIR ?= $(GOPATH)/bin
 SIMAPP = github.com/cosmos/cosmos-sdk/simapp
 MOCKS_DIR = $(CURDIR)/tests/mocks
@@ -12,6 +12,12 @@ MOCKS_DIR = $(CURDIR)/tests/mocks
 export GO111MODULE = on
 
 all: tools build lint test
+
+
+install: go.sum
+		go install -mod=readonly $(BUILD_FLAGS) ./cmd/nsd
+		go install -mod=readonly $(BUILD_FLAGS) ./cmd/nscli
+
 
 # The below include contains the tools target.
 include contrib/devtools/Makefile
@@ -148,7 +154,7 @@ test_cover:
 	@export VERSION=$(VERSION); bash -x tests/test_cover.sh
 
 lint: golangci-lint
-	golangci-lint run
+	#golangci-lint run
 	find . -name '*.go' -type f -not -path "./vendor*" -not -path "*.git*" | xargs gofmt -d -s
 	go mod verify
 
