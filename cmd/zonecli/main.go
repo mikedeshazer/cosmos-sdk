@@ -21,7 +21,7 @@ import (
 	"github.com/cosmos/cosmos-sdk/client"
 	"github.com/cosmos/cosmos-sdk/client/lcd"
 	"github.com/cosmos/cosmos-sdk/client/rpc"
-	"github.com/cosmos/cosmos-sdk/client/tx"
+	"github.com/erra-project/core/client/tx"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	at "github.com/cosmos/cosmos-sdk/x/auth"
 
