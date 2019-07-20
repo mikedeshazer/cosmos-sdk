@@ -55,8 +55,7 @@ go-mod-cache: go.sum
 
 go.sum: go.mod
 	@echo "--> Ensure dependencies have not been modified"
-	@go mod verify
-	@go mod tidy
+
 
 clean:
 	rm -rf snapcraft-local.yaml build/
