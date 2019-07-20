@@ -15,8 +15,8 @@ all: tools build test install
 
 
 install: go.sum
-		go install -mod=readonly $(BUILD_FLAGS) ./cmd/nsd
-		go install -mod=readonly $(BUILD_FLAGS) ./cmd/nscli
+		go install -mod=readonly $(BUILD_FLAGS) ./cmd/zoned
+		go install -mod=readonly $(BUILD_FLAGS) ./cmd/zonecli
 
 
 # The below include contains the tools target.
